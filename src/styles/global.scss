@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%; //15px
+  }
+  @media (max-width: 720px) {
+    font-size: 87.5%; //14px
+  }
+}
+
+:root {
+  --background: #f0f0f0;
+  --primary: #badc58;
+  --secondary: #1d164d;
+  --border: #2d3561;
+  --title: #b4b4b4;
+  --text_input: #b4b4b4;
+  --text: #bcbcbc;
+  --subtitle: #9e9baf;
+  --footer-text: #1d164d;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}

@@ -1,0 +1,29 @@
+.field {
+  display: flex;
+  flex-direction: row !important;
+  gap: 1rem;
+
+  input {
+    padding: 1.25rem 160px 1rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-weight: 500;
+    background: var(--background);
+
+    @media (max-width: 978px) {
+      padding: 1.25rem 1rem 1rem 1rem;
+    }
+  }
+
+  button {
+    padding: 0.9rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: var(--primary);
+
+    svg {
+      color: var(--background);
+    }
+  }
+}

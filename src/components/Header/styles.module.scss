@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 0;
+
+  button {
+    border: none;
+    outline: none;
+    color: var(--primary);
+    border-radius: 10px;
+    font-weight: bold;
+    background: none;
+    margin-right: 2.5rem;
+    @media (max-width: 978px) {
+      margin-right: 0;
+    }
+  }
+}

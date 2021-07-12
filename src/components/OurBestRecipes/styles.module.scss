@@ -1,0 +1,25 @@
+.recipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 55px;
+
+  h1 {
+    color: var(--secondary);
+    font-size: 2rem;
+  }
+
+  span {
+    text-align: center;
+  }
+
+  .recipesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    gap: 2.25rem;
+  }
+}
