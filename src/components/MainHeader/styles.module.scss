@@ -1,14 +1,19 @@
 .container {
   display: grid;
   padding: 0 1rem 0 1rem;
+  max-width: 1090px;
+  width: 100%;
+  height: 95vh;
+
+  margin: 0 auto;
 
   div {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+
     div {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
 
       p {
         color: var(--secondary);
@@ -17,11 +22,13 @@
         margin-bottom: 3rem;
       }
     }
-
     img {
-      margin-right: -8.75rem;
+      position: absolute;
+      right: 0;
+      top: 9%;
+      z-index: -99;
 
-      @media (max-width: 978px) {
+      @media (max-width: 1256px) {
         display: none;
       }
     }

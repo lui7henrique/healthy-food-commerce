@@ -4,17 +4,15 @@ import styles from "./styles.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  type: string;
+  type: "search" | "join";
 }
 
-export function Field({ placeholder }: InputProps) {
+export function Field({ placeholder, type }: InputProps) {
   return (
     <div className={styles.field}>
       <input placeholder={placeholder} />
 
-      <button>
-        <MdSearch size={20} />
-      </button>
+      <button>{type === "search" ? <MdSearch size={20} /> : "Join"}</button>
     </div>
   );
 }

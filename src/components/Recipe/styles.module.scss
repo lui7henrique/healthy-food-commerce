@@ -1,49 +1,71 @@
 .recipe {
   display: flex;
   flex-direction: row;
-  @media (max-width: 768px) {
-    width: 265px;
-    height: 112px;
+  align-items: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  @media (max-width: 1088px) {
+    &:last-child {
+      display: none;
+    }
   }
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
-    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+
+  @media (max-width: 374px) {
+    &:nth-child(3) {
+      display: none;
+    }
+  }
 
   img {
-    border-radius: 10px 0 0 10px;
+    border-radius: 1rem 0 0 1rem;
+    transition: all 0.2s ease-in-out;
+
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    @media (max-width: 767px) {
+      height: 150px;
+    }
+
+    &:hover {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+      filter: brightness(1);
+    }
   }
+
   div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 3.375rem 1rem 3rem 2rem;
-    @media (max-width: 768px) {
-      padding: 0.5rem 1rem 3rem 1rem;
+    padding: 0 5rem 0 2rem;
+
+    @media (max-width: 767px) {
+      padding: 0 2rem 0 2rem;
     }
 
     h1 {
-      @media (max-width: 768px) {
-        font-size: 1rem;
+      font-size: 1.5rem !important;
+      @media (max-width: 767px) {
+        font-size: 1rem !important;
       }
-      font-size: 1.5rem;
     }
 
     button {
-      width: 135px;
-      height: 50px;
-      @media (max-width: 768px) {
-        width: 100px;
-        height: 30px;
-        margin-top: 0.5rem;
-        padding: 0.5rem 1rem;
-      }
+      padding: 1rem;
       border: none;
-      outline: none;
       background: var(--primary);
-      border-radius: 10px;
-      color: var(--background);
-      font-weight: bold;
+      border-radius: 5px;
+      color: #ffffff;
+      font-weight: 700;
+
+      @media (max-width: 767px) {
+        padding: 0.5rem;
+      }
     }
   }
 }

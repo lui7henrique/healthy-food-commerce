@@ -4,16 +4,19 @@ import styles from "./styles.module.scss";
 export function OurBestRecipes() {
   return (
     <section className={styles.recipes}>
-      <h1>Our Best Recipes</h1>
-      <span>
-        Far far away, behind the word mountains, far from the countries <br />
-        Vokalia and Consonantia, there live the blind texts.
-      </span>
-      <div className={styles.recipesList}>
-        <Recipe name="Broccoli Salad with Bacon" id={1} />
-        <Recipe name="Classic Beef Burguers" id={2} />
-        <Recipe name="Classic Potato Salad" id={3} />
-        <Recipe name="Cherry Cobbler on the Grill" id={4} />
+      <div className={styles.container}>
+        <h1>Our Best Recipes</h1>
+        <p>
+          Far far away, behind the word mountains, far from the countries
+          <br /> Vokalia and Consonantia, there live the blind texts.
+        </p>
+
+        <div className={styles.cardList}>
+          <Recipe name="Broccoli Salad with Bacon" id={1} />
+          <Recipe name="Broccoli Salad with Bacon" id={2} />
+          <Recipe name="Broccoli Salad with Bacon" id={3} />
+          <Recipe name="Broccoli Salad with Bacon" id={4} />
+        </div>
       </div>
     </section>
   );

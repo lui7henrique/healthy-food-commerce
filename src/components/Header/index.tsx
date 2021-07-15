@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className={styles.container}>
       <img src="logo.png" alt="Logo Healthy Food" />
-      <button>REGISTER</button>
+      <button>Register</button>
     </header>
   );
 }
