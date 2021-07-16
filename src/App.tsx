@@ -1,22 +1,23 @@
 import React from "react";
-import { MainHeader } from "./components/MainHeader";
-import { OurBestRecipes } from "./components/OurBestRecipes";
-import { ReadOurBlog } from "./components/ReadOurBlog";
-import { TheBestServices } from "./components/TheBestServices";
-import { JoinOurMembership } from "./components/JoinOurMembership";
-import { Footer } from "./components/Footer";
-import "./styles/home.scss";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Home } from "./components/pages/Home";
+import { Register } from "./components/pages/Register";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
-    <div className="container">
-      <MainHeader />
-      <OurBestRecipes />
-      <TheBestServices />
-      <ReadOurBlog />
-      <JoinOurMembership />
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/register">
+          <ChakraProvider>
+            <Register />
+          </ChakraProvider>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

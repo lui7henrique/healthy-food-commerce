@@ -1,4 +1,4 @@
-import { Post } from "../Post";
+import { Post } from "../../molecules/Post";
 import styles from "./styles.module.scss";
 
 export function ReadOurBlog() {

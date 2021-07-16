@@ -1,4 +1,4 @@
-import { Field } from "../Field";
+import { Field } from "../../atoms/Field";
 import styles from "./styles.module.scss";
 
 export function JoinOurMembership() {

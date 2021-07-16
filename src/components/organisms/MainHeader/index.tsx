@@ -1,5 +1,5 @@
-import Header from "../Header";
-import { Field } from "../Field";
+import Header from "../../molecules/Header";
+import { Field } from "../../atoms/Field";
 import styles from "./styles.module.scss";
 
 export function MainHeader() {
