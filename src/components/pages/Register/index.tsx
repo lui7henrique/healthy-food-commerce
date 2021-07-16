@@ -1,11 +1,14 @@
-import { Stack, Flex, Button, Image, HStack, Heading } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { Input } from "../../atoms/Input";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "./styles.module.scss";
+import { isValidCPF } from "../../../utils/isValidCPF";
+import * as yup from "yup";
 
 type Adress = {
   cep: string;
@@ -20,24 +23,46 @@ type Adress = {
   siafi: string;
 };
 
-export function Register() {
-  const { handleSubmit, register, watch, setValue } = useForm();
-  const [address, setAdress] = useState<Adress>();
-  const [error, setError] = useState<boolean>(false);
+const createUserFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required("Nome obrigatório")
+    .max(40, "No máximo, 50 caractéres"),
+  date: yup.string().required("Data obrigatória"),
+  cpf: yup
+    .string()
+    .required("CPF obrigatório")
+    .max(11, "Quantidade de caractéres inválida")
+    .min(11, "Quantidade de caractéres inválida"),
+  cep: yup
+    .string()
+    .required("CEP obrigatório")
+    .max(8, "Quantidade de caractéres inválida")
+    .min(8, "Quantidade de caractéres inválida"),
+});
 
+export function Register() {
+  const {
+    handleSubmit,
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(createUserFormSchema) });
+  const [address, setAdress] = useState<Adress>();
+  const [isValidCpf, setIsValidCpf] = useState<boolean>(false);
   const history = useHistory();
 
   const onSubmit = useCallback((data: any) => {
-    console.log(data);
-    localStorage.setItem("", "myvalue");
+    localStorage.setItem(data.name, JSON.stringify(data));
+    history.push("/");
   }, []);
 
-  const watchCpf = watch("cep");
-
+  const watchCep = watch("cep");
   useEffect(() => {
     async function request() {
       try {
-        const res = await fetch(`https://viacep.com.br/ws/${watchCpf}/json/`);
+        const res = await fetch(`https://viacep.com.br/ws/${watchCep}/json/`);
         const data = await res.json();
         setAdress(data);
       } catch (err) {
@@ -45,7 +70,7 @@ export function Register() {
       }
     }
     request();
-  }, [setValue, watchCpf]);
+  }, [setValue, watchCep]);
 
   useEffect(() => {
     setValue("street", address?.logradouro);
@@ -63,28 +88,27 @@ export function Register() {
             label="Nome"
             type="text"
             placeholder="Tom Hiddleston"
-            isRequired
+            error={errors.name}
             {...register("name")}
           />
           <Input
             label="Data de nascimento"
             type="date"
-            isRequired
+            error={errors.date}
             {...register("date")}
           />
-
           <Input
             label="CPF"
             type="number"
-            placeholder="000.000.000-00"
-            isRequired
+            error={errors.cpf}
+            placeholder="00000000000"
             {...register("cpf")}
           />
           <Input
             label="CEP"
             type="number"
-            placeholder="00000-000"
-            isRequired
+            placeholder="00000000"
+            error={errors.cep}
             {...register("cep")}
           />
           <Input
@@ -105,7 +129,6 @@ export function Register() {
             label="Cidade"
             type="text"
             isDisabled
-            width="20%"
             value={address?.localidade}
             {...register("city")}
           />
