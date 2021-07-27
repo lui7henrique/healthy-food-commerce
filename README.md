@@ -11,7 +11,7 @@ O projeto consistia em desenvolver o site utilizando React, sendo 100% responsiv
 - Utilizar a API externa para preencher os demais campos que compõe o endereço (rua, bairro, cidade e estado)
 - Validação dos campos
 - Armazenar os dados do formulário no local storage e Cookies
-> Acesse em: https://healthy-food-commerce.vercel.app/
+> Acesse em: https://healthy-food-commerce.vercel.app/ 
 
 ## 👩‍💻 Tecnologias
 
