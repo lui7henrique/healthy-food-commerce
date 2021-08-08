@@ -21,7 +21,5 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [SASS](https://sass-lang.com/)
 - [Yup](https://github.com/jquense/yup)
 - [Chakra UI](https://chakra-ui.com/)
-- [React Hook Form](https://react-hook-form.com/)
 - [ViaCEP](https://viacep.com.br/)
-- [React Router](https://reactrouter.com/)
-- [React Icons](https://react-icons.github.io/react-icons/)
+
